@@ -1,0 +1,106 @@
+﻿@model FitMind.Models.Exam
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Exam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.q1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.q1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.q2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.q2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.q3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.q3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.q4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.q4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.a1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.a1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.a2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.a2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.a3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.a3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.a4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.a4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.examId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

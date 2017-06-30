@@ -10,107 +10,112 @@ using FitMind.Models;
 
 namespace FitMind.Controllers
 {
-    public class MVCUsersController : Controller
+    public class MVCQuizsController : Controller
     {
         private fitMindDbEntities1 db = new fitMindDbEntities1();
 
-        // GET: MVCUsers
+        // GET: MVCQuizs
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            var quizs = db.Quizs.Include(q => q.Sponsor);
+            return View(quizs.ToList());
         }
 
-        // GET: MVCUsers/Details/5
+        // GET: MVCQuizs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Quiz quiz = db.Quizs.Find(id);
+            if (quiz == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(quiz);
         }
 
-        // GET: MVCUsers/Create
+        // GET: MVCQuizs/Create
         public ActionResult Create()
         {
+            ViewBag.sponsorId = new SelectList(db.Sponsors, "sponsorId", "sponsorId");
             return View();
         }
 
-        // POST: MVCUsers/Create
+        // POST: MVCQuizs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userId,Name,Surname,DOB,Age,Email,Phone,Password,TotalPoints,PointstoDate,PointsSpent,School,Gender")] User user)
+        public ActionResult Create([Bind(Include = "quizId,points,name,startDate,endDate,q1,q2,q3,q4,a1,a2,a3,a4,sponsorId")] Quiz quiz)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.Quizs.Add(quiz);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            ViewBag.sponsorId = new SelectList(db.Sponsors, "sponsorId", "sponsorId", quiz.sponsorId);
+            return View(quiz);
         }
 
-        // GET: MVCUsers/Edit/5
+        // GET: MVCQuizs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Quiz quiz = db.Quizs.Find(id);
+            if (quiz == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            ViewBag.sponsorId = new SelectList(db.Sponsors, "sponsorId", "sponsorId", quiz.sponsorId);
+            return View(quiz);
         }
 
-        // POST: MVCUsers/Edit/5
+        // POST: MVCQuizs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userId,Name,Surname,DOB,Age,Email,Phone,Password,TotalPoints,PointstoDate,PointsSpent,School,Gender")] User user)
+        public ActionResult Edit([Bind(Include = "quizId,points,name,startDate,endDate,q1,q2,q3,q4,a1,a2,a3,a4,sponsorId")] Quiz quiz)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                db.Entry(quiz).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            ViewBag.sponsorId = new SelectList(db.Sponsors, "sponsorId", "sponsorId", quiz.sponsorId);
+            return View(quiz);
         }
 
-        // GET: MVCUsers/Delete/5
+        // GET: MVCQuizs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Quiz quiz = db.Quizs.Find(id);
+            if (quiz == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(quiz);
         }
 
-        // POST: MVCUsers/Delete/5
+        // POST: MVCQuizs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            Quiz quiz = db.Quizs.Find(id);
+            db.Quizs.Remove(quiz);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

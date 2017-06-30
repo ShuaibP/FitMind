@@ -10,107 +10,112 @@ using FitMind.Models;
 
 namespace FitMind.Controllers
 {
-    public class MVCUsersController : Controller
+    public class MVCGoodiesController : Controller
     {
         private fitMindDbEntities1 db = new fitMindDbEntities1();
 
-        // GET: MVCUsers
+        // GET: MVCGoodies
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            var goodies = db.Goodies.Include(g => g.Sponsor);
+            return View(goodies.ToList());
         }
 
-        // GET: MVCUsers/Details/5
+        // GET: MVCGoodies/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Goodie goodie = db.Goodies.Find(id);
+            if (goodie == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(goodie);
         }
 
-        // GET: MVCUsers/Create
+        // GET: MVCGoodies/Create
         public ActionResult Create()
         {
+            ViewBag.sponsorId = new SelectList(db.Sponsors, "sponsorId", "sponsorId");
             return View();
         }
 
-        // POST: MVCUsers/Create
+        // POST: MVCGoodies/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userId,Name,Surname,DOB,Age,Email,Phone,Password,TotalPoints,PointstoDate,PointsSpent,School,Gender")] User user)
+        public ActionResult Create([Bind(Include = "goodieId,description,pointsNeeded,category,sponsorId")] Goodie goodie)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.Goodies.Add(goodie);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            ViewBag.sponsorId = new SelectList(db.Sponsors, "sponsorId", "sponsorId", goodie.sponsorId);
+            return View(goodie);
         }
 
-        // GET: MVCUsers/Edit/5
+        // GET: MVCGoodies/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Goodie goodie = db.Goodies.Find(id);
+            if (goodie == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            ViewBag.sponsorId = new SelectList(db.Sponsors, "sponsorId", "sponsorId", goodie.sponsorId);
+            return View(goodie);
         }
 
-        // POST: MVCUsers/Edit/5
+        // POST: MVCGoodies/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userId,Name,Surname,DOB,Age,Email,Phone,Password,TotalPoints,PointstoDate,PointsSpent,School,Gender")] User user)
+        public ActionResult Edit([Bind(Include = "goodieId,description,pointsNeeded,category,sponsorId")] Goodie goodie)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                db.Entry(goodie).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            ViewBag.sponsorId = new SelectList(db.Sponsors, "sponsorId", "sponsorId", goodie.sponsorId);
+            return View(goodie);
         }
 
-        // GET: MVCUsers/Delete/5
+        // GET: MVCGoodies/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Goodie goodie = db.Goodies.Find(id);
+            if (goodie == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(goodie);
         }
 
-        // POST: MVCUsers/Delete/5
+        // POST: MVCGoodies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            Goodie goodie = db.Goodies.Find(id);
+            db.Goodies.Remove(goodie);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

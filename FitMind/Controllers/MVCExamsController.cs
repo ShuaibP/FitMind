@@ -10,107 +10,112 @@ using FitMind.Models;
 
 namespace FitMind.Controllers
 {
-    public class MVCUsersController : Controller
+    public class MVCExamsController : Controller
     {
         private fitMindDbEntities1 db = new fitMindDbEntities1();
 
-        // GET: MVCUsers
+        // GET: MVCExams
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            var exams = db.Exams.Include(e => e.Subject);
+            return View(exams.ToList());
         }
 
-        // GET: MVCUsers/Details/5
+        // GET: MVCExams/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Exam exam = db.Exams.Find(id);
+            if (exam == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(exam);
         }
 
-        // GET: MVCUsers/Create
+        // GET: MVCExams/Create
         public ActionResult Create()
         {
+            ViewBag.subjectId = new SelectList(db.Subjects, "subjectId", "name");
             return View();
         }
 
-        // POST: MVCUsers/Create
+        // POST: MVCExams/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userId,Name,Surname,DOB,Age,Email,Phone,Password,TotalPoints,PointstoDate,PointsSpent,School,Gender")] User user)
+        public ActionResult Create([Bind(Include = "examId,points,name,q1,q2,q3,q4,a1,a2,a3,a4,subjectId")] Exam exam)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.Exams.Add(exam);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            ViewBag.subjectId = new SelectList(db.Subjects, "subjectId", "name", exam.subjectId);
+            return View(exam);
         }
 
-        // GET: MVCUsers/Edit/5
+        // GET: MVCExams/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Exam exam = db.Exams.Find(id);
+            if (exam == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            ViewBag.subjectId = new SelectList(db.Subjects, "subjectId", "name", exam.subjectId);
+            return View(exam);
         }
 
-        // POST: MVCUsers/Edit/5
+        // POST: MVCExams/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userId,Name,Surname,DOB,Age,Email,Phone,Password,TotalPoints,PointstoDate,PointsSpent,School,Gender")] User user)
+        public ActionResult Edit([Bind(Include = "examId,points,name,q1,q2,q3,q4,a1,a2,a3,a4,subjectId")] Exam exam)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                db.Entry(exam).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            ViewBag.subjectId = new SelectList(db.Subjects, "subjectId", "name", exam.subjectId);
+            return View(exam);
         }
 
-        // GET: MVCUsers/Delete/5
+        // GET: MVCExams/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Exam exam = db.Exams.Find(id);
+            if (exam == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(exam);
         }
 
-        // POST: MVCUsers/Delete/5
+        // POST: MVCExams/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            Exam exam = db.Exams.Find(id);
+            db.Exams.Remove(exam);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

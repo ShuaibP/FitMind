@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e079dc287aff4ff7917c129363010b14" Name="Diagram1">
+      <Diagram DiagramId="443956b419854760ab3fbe6a1ab90483" Name="Diagram1">
         <EntityTypeShape EntityType="fitMindDbModel.Event" Width="1.5" PointX="3.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="fitMindDbModel.Exam" Width="1.5" PointX="3.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="fitMindDbModel.Exam" Width="1.5" PointX="3.75" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="fitMindDbModel.Goodie" Width="1.5" PointX="0.75" PointY="19.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="fitMindDbModel.Quiz" Width="1.5" PointX="3.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="fitMindDbModel.Quiz" Width="1.5" PointX="3.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="fitMindDbModel.Sponsor" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="fitMindDbModel.Subject" Width="1.5" PointX="1.5" PointY="17" IsExpanded="true" />
         <EntityTypeShape EntityType="fitMindDbModel.Survey" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />

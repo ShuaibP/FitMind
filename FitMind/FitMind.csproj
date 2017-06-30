@@ -170,69 +170,72 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MVCExamsController.cs" />
+    <Compile Include="Controllers\MVCGoodiesController.cs" />
+    <Compile Include="Controllers\MVCQuizsController.cs" />
     <Compile Include="Controllers\MVCUsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Event.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Exam.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FitmindEntities.Context.cs">
+    <Compile Include="Models\FitMindEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FitmindEntities.Context.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FitmindEntities.cs">
+    <Compile Include="Models\FitMindEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FitmindEntities.Designer.cs">
+    <Compile Include="Models\FitMindEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FitmindEntities.edmx</DependentUpon>
+      <DependentUpon>FitMindEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Goodie.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Quiz.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sponsor.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Subject.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Survey.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Transaction.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Trophy.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserEvent.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserExam.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserQuiz.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserSurvey.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserTrophy.cs">
-      <DependentUpon>FitmindEntities.tt</DependentUpon>
+      <DependentUpon>FitMindEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -243,27 +246,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\FitmindEntities.Context.tt">
+    <Content Include="Models\FitMindEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FitmindEntities.Context.cs</LastGenOutput>
-      <DependentUpon>FitmindEntities.edmx</DependentUpon>
+      <DependentUpon>FitMindEntities.edmx</DependentUpon>
+      <LastGenOutput>FitMindEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\FitmindEntities.tt">
+    <Content Include="Models\FitMindEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FitmindEntities.edmx</DependentUpon>
-      <LastGenOutput>FitmindEntities.cs</LastGenOutput>
+      <DependentUpon>FitMindEntities.edmx</DependentUpon>
+      <LastGenOutput>FitMindEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\FitmindEntities.edmx">
+    <EntityDeploy Include="Models\FitMindEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FitmindEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>FitMindEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\FitmindEntities.edmx.diagram">
-      <DependentUpon>FitmindEntities.edmx</DependentUpon>
+    <Content Include="Models\FitMindEntities.edmx.diagram">
+      <DependentUpon>FitMindEntities.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\FitMindTech - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -298,6 +301,21 @@
     <Content Include="Views\MVCUsers\Details.cshtml" />
     <Content Include="Views\MVCUsers\Edit.cshtml" />
     <Content Include="Views\MVCUsers\Index.cshtml" />
+    <Content Include="Views\MVCQuizs\Create.cshtml" />
+    <Content Include="Views\MVCQuizs\Delete.cshtml" />
+    <Content Include="Views\MVCQuizs\Details.cshtml" />
+    <Content Include="Views\MVCQuizs\Edit.cshtml" />
+    <Content Include="Views\MVCQuizs\Index.cshtml" />
+    <Content Include="Views\MVCExams\Create.cshtml" />
+    <Content Include="Views\MVCExams\Delete.cshtml" />
+    <Content Include="Views\MVCExams\Details.cshtml" />
+    <Content Include="Views\MVCExams\Edit.cshtml" />
+    <Content Include="Views\MVCExams\Index.cshtml" />
+    <Content Include="Views\MVCGoodies\Create.cshtml" />
+    <Content Include="Views\MVCGoodies\Delete.cshtml" />
+    <Content Include="Views\MVCGoodies\Details.cshtml" />
+    <Content Include="Views\MVCGoodies\Edit.cshtml" />
+    <Content Include="Views\MVCGoodies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

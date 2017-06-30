@@ -31,6 +31,10 @@
           <Property Name="a2" Type="varchar" MaxLength="50" />
           <Property Name="a3" Type="varchar" MaxLength="50" />
           <Property Name="a4" Type="varchar" MaxLength="50" />
+          <Property Name="d1" Type="varchar" MaxLength="50" />
+          <Property Name="d2" Type="varchar" MaxLength="50" />
+          <Property Name="d3" Type="varchar" MaxLength="50" />
+          <Property Name="d4" Type="varchar" MaxLength="50" />
           <Property Name="subjectId" Type="int" />
         </EntityType>
         <EntityType Name="Goodie">
@@ -499,6 +503,10 @@
           <Property Name="a2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="a3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="a4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="d1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="d2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="d3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="d4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="subjectId" Type="Int32" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Exam_Subject" FromRole="Exam" ToRole="Subject" />
           <NavigationProperty Name="UserExams" Relationship="Self.FK_UserExam_Exam" FromRole="Exam" ToRole="UserExam" />
@@ -881,7 +889,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="fitMindDbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="fitMindDbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Events" EntityType="Self.Event" />
           <EntitySet Name="Exams" EntityType="Self.Exam" />
           <EntitySet Name="Goodies" EntityType="Self.Goodie" />
@@ -971,7 +979,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="fitMindDbModelStoreContainer" CdmEntityContainer="fitMindDbEntities">
+        <EntityContainerMapping StorageEntityContainer="fitMindDbModelStoreContainer" CdmEntityContainer="fitMindDbEntities1">
           <EntitySetMapping Name="Events">
             <EntityTypeMapping TypeName="fitMindDbModel.Event">
               <MappingFragment StoreEntitySet="Event">
@@ -998,6 +1006,10 @@
                 <ScalarProperty Name="a2" ColumnName="a2" />
                 <ScalarProperty Name="a3" ColumnName="a3" />
                 <ScalarProperty Name="a4" ColumnName="a4" />
+                <ScalarProperty Name="d1" ColumnName="d1" />
+                <ScalarProperty Name="d2" ColumnName="d2" />
+                <ScalarProperty Name="d3" ColumnName="d3" />
+                <ScalarProperty Name="d4" ColumnName="d4" />
                 <ScalarProperty Name="subjectId" ColumnName="subjectId" />
               </MappingFragment>
             </EntityTypeMapping>
