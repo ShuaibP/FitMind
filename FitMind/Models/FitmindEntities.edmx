@@ -1,0 +1,1185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="fitMindDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="eventId" />
+          </Key>
+          <Property Name="eventId" Type="int" Nullable="false" />
+          <Property Name="startDate" Type="date" />
+          <Property Name="endDate" Type="date" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+          <Property Name="sponsorId" Type="int" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="examId" />
+          </Key>
+          <Property Name="examId" Type="int" Nullable="false" />
+          <Property Name="points" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="q1" Type="varchar" MaxLength="50" />
+          <Property Name="q2" Type="varchar" MaxLength="50" />
+          <Property Name="q3" Type="varchar" MaxLength="50" />
+          <Property Name="q4" Type="varchar" MaxLength="50" />
+          <Property Name="a1" Type="varchar" MaxLength="50" />
+          <Property Name="a2" Type="varchar" MaxLength="50" />
+          <Property Name="a3" Type="varchar" MaxLength="50" />
+          <Property Name="a4" Type="varchar" MaxLength="50" />
+          <Property Name="subjectId" Type="int" />
+        </EntityType>
+        <EntityType Name="Goodie">
+          <Key>
+            <PropertyRef Name="goodieId" />
+          </Key>
+          <Property Name="goodieId" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+          <Property Name="pointsNeeded" Type="int" />
+          <Property Name="category" Type="varchar" MaxLength="50" />
+          <Property Name="sponsorId" Type="int" />
+        </EntityType>
+        <EntityType Name="Quiz">
+          <Key>
+            <PropertyRef Name="quizId" />
+          </Key>
+          <Property Name="quizId" Type="int" Nullable="false" />
+          <Property Name="points" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="startDate" Type="date" />
+          <Property Name="endDate" Type="date" />
+          <Property Name="q1" Type="varchar" MaxLength="50" />
+          <Property Name="q2" Type="varchar" MaxLength="50" />
+          <Property Name="q3" Type="varchar" MaxLength="50" />
+          <Property Name="q4" Type="varchar" MaxLength="50" />
+          <Property Name="a1" Type="varchar" MaxLength="50" />
+          <Property Name="a2" Type="varchar" MaxLength="50" />
+          <Property Name="a3" Type="varchar" MaxLength="50" />
+          <Property Name="a4" Type="varchar" MaxLength="50" />
+          <Property Name="sponsorId" Type="int" />
+        </EntityType>
+        <EntityType Name="Sponsor">
+          <Key>
+            <PropertyRef Name="sponsorId" />
+          </Key>
+          <Property Name="sponsorId" Type="int" Nullable="false" />
+          <Property Name="name" Type="varbinary" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="subjectId" />
+          </Key>
+          <Property Name="subjectId" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="surveyId" />
+          </Key>
+          <Property Name="surveyId" Type="int" Nullable="false" />
+          <Property Name="points" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="startDate" Type="date" />
+          <Property Name="endDate" Type="date" />
+          <Property Name="q1" Type="varchar" MaxLength="50" />
+          <Property Name="q2" Type="varchar" MaxLength="50" />
+          <Property Name="q3" Type="varchar" MaxLength="50" />
+          <Property Name="q4" Type="varchar" MaxLength="50" />
+          <Property Name="q5" Type="varchar" MaxLength="50" />
+          <Property Name="sponsorId" Type="int" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="transactionId" />
+          </Key>
+          <Property Name="transactionId" Type="int" Nullable="false" />
+          <Property Name="claimDate" Type="date" />
+          <Property Name="redeemDate" Type="date" />
+          <Property Name="redeemed" Type="bit" />
+          <Property Name="goodieId" Type="int" />
+          <Property Name="userId" Type="int" />
+        </EntityType>
+        <EntityType Name="Trophy">
+          <Key>
+            <PropertyRef Name="trophyId" />
+          </Key>
+          <Property Name="trophyId" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+          <Property Name="path" Type="varchar" MaxLength="50" />
+          <Property Name="pointsAwarded" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="TotalPoints" Type="int" />
+          <Property Name="PointstoDate" Type="int" />
+          <Property Name="PointsSpent" Type="int" />
+          <Property Name="School" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserEvent">
+          <Key>
+            <PropertyRef Name="userEventId" />
+          </Key>
+          <Property Name="userEventId" Type="int" Nullable="false" />
+          <Property Name="eventId" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="checkInDate" Type="date" />
+        </EntityType>
+        <EntityType Name="UserExam">
+          <Key>
+            <PropertyRef Name="userExamId" />
+          </Key>
+          <Property Name="userExamId" Type="int" Nullable="false" />
+          <Property Name="complete" Type="bit" />
+          <Property Name="examId" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="dateCompleted" Type="date" />
+        </EntityType>
+        <EntityType Name="UserQuiz">
+          <Key>
+            <PropertyRef Name="userQuizId" />
+          </Key>
+          <Property Name="userQuizId" Type="int" Nullable="false" />
+          <Property Name="complete" Type="bit" />
+          <Property Name="quizId" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="dateCompleted" Type="date" />
+        </EntityType>
+        <EntityType Name="UserSurvey">
+          <Key>
+            <PropertyRef Name="userSurveyId" />
+          </Key>
+          <Property Name="userSurveyId" Type="int" Nullable="false" />
+          <Property Name="complete" Type="bit" />
+          <Property Name="surveyId" Type="int" />
+          <Property Name="userId" Type="int" />
+          <Property Name="dateCompleted" Type="date" />
+        </EntityType>
+        <EntityType Name="UserTrophy">
+          <Key>
+            <PropertyRef Name="userTrophyId" />
+          </Key>
+          <Property Name="userTrophyId" Type="int" Nullable="false" />
+          <Property Name="trophyId" Type="int" />
+          <Property Name="userId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Event_Sponsor">
+          <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="0..1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sponsor">
+              <PropertyRef Name="sponsorId" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="sponsorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="subjectId" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="subjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goodie_Sponsor">
+          <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="0..1" />
+          <End Role="Goodie" Type="Self.Goodie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sponsor">
+              <PropertyRef Name="sponsorId" />
+            </Principal>
+            <Dependent Role="Goodie">
+              <PropertyRef Name="sponsorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quiz_Sponsor">
+          <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="0..1" />
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sponsor">
+              <PropertyRef Name="sponsorId" />
+            </Principal>
+            <Dependent Role="Quiz">
+              <PropertyRef Name="sponsorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Survey_Sponsor">
+          <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="0..1" />
+          <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sponsor">
+              <PropertyRef Name="sponsorId" />
+            </Principal>
+            <Dependent Role="Survey">
+              <PropertyRef Name="sponsorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Goodie">
+          <End Role="Goodie" Type="Self.Goodie" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goodie">
+              <PropertyRef Name="goodieId" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="goodieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEvent_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="UserEvent" Type="Self.UserEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="eventId" />
+            </Principal>
+            <Dependent Role="UserEvent">
+              <PropertyRef Name="eventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEvent_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserEvent" Type="Self.UserEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserEvent">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserExam_Exam">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="0..1" />
+          <End Role="UserExam" Type="Self.UserExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exam">
+              <PropertyRef Name="examId" />
+            </Principal>
+            <Dependent Role="UserExam">
+              <PropertyRef Name="examId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserExam_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserExam" Type="Self.UserExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserExam">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserQuiz_Quiz">
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="0..1" />
+          <End Role="UserQuiz" Type="Self.UserQuiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="quizId" />
+            </Principal>
+            <Dependent Role="UserQuiz">
+              <PropertyRef Name="quizId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserQuiz_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserQuiz" Type="Self.UserQuiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserQuiz">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSurvey_Survey">
+          <End Role="Survey" Type="Self.Survey" Multiplicity="0..1" />
+          <End Role="UserSurvey" Type="Self.UserSurvey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Survey">
+              <PropertyRef Name="surveyId" />
+            </Principal>
+            <Dependent Role="UserSurvey">
+              <PropertyRef Name="surveyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSurvey_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserSurvey" Type="Self.UserSurvey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserSurvey">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTrophy_Trophy">
+          <End Role="Trophy" Type="Self.Trophy" Multiplicity="0..1" />
+          <End Role="UserTrophy" Type="Self.UserTrophy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trophy">
+              <PropertyRef Name="trophyId" />
+            </Principal>
+            <Dependent Role="UserTrophy">
+              <PropertyRef Name="trophyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTrophy_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserTrophy" Type="Self.UserTrophy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserTrophy">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="fitMindDbModelStoreContainer">
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goodie" EntityType="Self.Goodie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quiz" EntityType="Self.Quiz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sponsor" EntityType="Self.Sponsor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Survey" EntityType="Self.Survey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trophy" EntityType="Self.Trophy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserEvent" EntityType="Self.UserEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserExam" EntityType="Self.UserExam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserQuiz" EntityType="Self.UserQuiz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserSurvey" EntityType="Self.UserSurvey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTrophy" EntityType="Self.UserTrophy" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Event_Sponsor" Association="Self.FK_Event_Sponsor">
+            <End Role="Sponsor" EntitySet="Sponsor" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Subject" Association="Self.FK_Exam_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goodie_Sponsor" Association="Self.FK_Goodie_Sponsor">
+            <End Role="Sponsor" EntitySet="Sponsor" />
+            <End Role="Goodie" EntitySet="Goodie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quiz_Sponsor" Association="Self.FK_Quiz_Sponsor">
+            <End Role="Sponsor" EntitySet="Sponsor" />
+            <End Role="Quiz" EntitySet="Quiz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Survey_Sponsor" Association="Self.FK_Survey_Sponsor">
+            <End Role="Sponsor" EntitySet="Sponsor" />
+            <End Role="Survey" EntitySet="Survey" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Goodie" Association="Self.FK_Transaction_Goodie">
+            <End Role="Goodie" EntitySet="Goodie" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_User" Association="Self.FK_Transaction_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEvent_Event" Association="Self.FK_UserEvent_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="UserEvent" EntitySet="UserEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEvent_User" Association="Self.FK_UserEvent_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserEvent" EntitySet="UserEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserExam_Exam" Association="Self.FK_UserExam_Exam">
+            <End Role="Exam" EntitySet="Exam" />
+            <End Role="UserExam" EntitySet="UserExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserExam_User" Association="Self.FK_UserExam_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserExam" EntitySet="UserExam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserQuiz_Quiz" Association="Self.FK_UserQuiz_Quiz">
+            <End Role="Quiz" EntitySet="Quiz" />
+            <End Role="UserQuiz" EntitySet="UserQuiz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserQuiz_User" Association="Self.FK_UserQuiz_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserQuiz" EntitySet="UserQuiz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSurvey_Survey" Association="Self.FK_UserSurvey_Survey">
+            <End Role="Survey" EntitySet="Survey" />
+            <End Role="UserSurvey" EntitySet="UserSurvey" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSurvey_User" Association="Self.FK_UserSurvey_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserSurvey" EntitySet="UserSurvey" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTrophy_Trophy" Association="Self.FK_UserTrophy_Trophy">
+            <End Role="Trophy" EntitySet="Trophy" />
+            <End Role="UserTrophy" EntitySet="UserTrophy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTrophy_User" Association="Self.FK_UserTrophy_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserTrophy" EntitySet="UserTrophy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fitMindDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="eventId" />
+          </Key>
+          <Property Name="eventId" Type="Int32" Nullable="false" />
+          <Property Name="startDate" Type="DateTime" Precision="0" />
+          <Property Name="endDate" Type="DateTime" Precision="0" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sponsorId" Type="Int32" />
+          <NavigationProperty Name="Sponsor" Relationship="Self.FK_Event_Sponsor" FromRole="Event" ToRole="Sponsor" />
+          <NavigationProperty Name="UserEvents" Relationship="Self.FK_UserEvent_Event" FromRole="Event" ToRole="UserEvent" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="examId" />
+          </Key>
+          <Property Name="examId" Type="Int32" Nullable="false" />
+          <Property Name="points" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="subjectId" Type="Int32" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK_Exam_Subject" FromRole="Exam" ToRole="Subject" />
+          <NavigationProperty Name="UserExams" Relationship="Self.FK_UserExam_Exam" FromRole="Exam" ToRole="UserExam" />
+        </EntityType>
+        <EntityType Name="Goodie">
+          <Key>
+            <PropertyRef Name="goodieId" />
+          </Key>
+          <Property Name="goodieId" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pointsNeeded" Type="Int32" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sponsorId" Type="Int32" />
+          <NavigationProperty Name="Sponsor" Relationship="Self.FK_Goodie_Sponsor" FromRole="Goodie" ToRole="Sponsor" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_Goodie" FromRole="Goodie" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Quiz">
+          <Key>
+            <PropertyRef Name="quizId" />
+          </Key>
+          <Property Name="quizId" Type="Int32" Nullable="false" />
+          <Property Name="points" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="startDate" Type="DateTime" Precision="0" />
+          <Property Name="endDate" Type="DateTime" Precision="0" />
+          <Property Name="q1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sponsorId" Type="Int32" />
+          <NavigationProperty Name="Sponsor" Relationship="Self.FK_Quiz_Sponsor" FromRole="Quiz" ToRole="Sponsor" />
+          <NavigationProperty Name="UserQuizs" Relationship="Self.FK_UserQuiz_Quiz" FromRole="Quiz" ToRole="UserQuiz" />
+        </EntityType>
+        <EntityType Name="Sponsor">
+          <Key>
+            <PropertyRef Name="sponsorId" />
+          </Key>
+          <Property Name="sponsorId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="Binary" MaxLength="50" FixedLength="false" />
+          <NavigationProperty Name="Events" Relationship="Self.FK_Event_Sponsor" FromRole="Sponsor" ToRole="Event" />
+          <NavigationProperty Name="Goodies" Relationship="Self.FK_Goodie_Sponsor" FromRole="Sponsor" ToRole="Goodie" />
+          <NavigationProperty Name="Quizs" Relationship="Self.FK_Quiz_Sponsor" FromRole="Sponsor" ToRole="Quiz" />
+          <NavigationProperty Name="Surveys" Relationship="Self.FK_Survey_Sponsor" FromRole="Sponsor" ToRole="Survey" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="subjectId" />
+          </Key>
+          <Property Name="subjectId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Exams" Relationship="Self.FK_Exam_Subject" FromRole="Subject" ToRole="Exam" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="surveyId" />
+          </Key>
+          <Property Name="surveyId" Type="Int32" Nullable="false" />
+          <Property Name="points" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="startDate" Type="DateTime" Precision="0" />
+          <Property Name="endDate" Type="DateTime" Precision="0" />
+          <Property Name="q1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sponsorId" Type="Int32" />
+          <NavigationProperty Name="Sponsor" Relationship="Self.FK_Survey_Sponsor" FromRole="Survey" ToRole="Sponsor" />
+          <NavigationProperty Name="UserSurveys" Relationship="Self.FK_UserSurvey_Survey" FromRole="Survey" ToRole="UserSurvey" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="transactionId" />
+          </Key>
+          <Property Name="transactionId" Type="Int32" Nullable="false" />
+          <Property Name="claimDate" Type="DateTime" Precision="0" />
+          <Property Name="redeemDate" Type="DateTime" Precision="0" />
+          <Property Name="redeemed" Type="Boolean" />
+          <Property Name="goodieId" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <NavigationProperty Name="Goodie" Relationship="Self.FK_Transaction_Goodie" FromRole="Transaction" ToRole="Goodie" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Transaction_User" FromRole="Transaction" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Trophy">
+          <Key>
+            <PropertyRef Name="trophyId" />
+          </Key>
+          <Property Name="trophyId" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="path" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pointsAwarded" Type="Int32" />
+          <NavigationProperty Name="UserTrophies" Relationship="Self.FK_UserTrophy_Trophy" FromRole="Trophy" ToRole="UserTrophy" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalPoints" Type="Int32" />
+          <Property Name="PointstoDate" Type="Int32" />
+          <Property Name="PointsSpent" Type="Int32" />
+          <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_User" FromRole="User" ToRole="Transaction" />
+          <NavigationProperty Name="UserEvents" Relationship="Self.FK_UserEvent_User" FromRole="User" ToRole="UserEvent" />
+          <NavigationProperty Name="UserExams" Relationship="Self.FK_UserExam_User" FromRole="User" ToRole="UserExam" />
+          <NavigationProperty Name="UserQuizs" Relationship="Self.FK_UserQuiz_User" FromRole="User" ToRole="UserQuiz" />
+          <NavigationProperty Name="UserSurveys" Relationship="Self.FK_UserSurvey_User" FromRole="User" ToRole="UserSurvey" />
+          <NavigationProperty Name="UserTrophies" Relationship="Self.FK_UserTrophy_User" FromRole="User" ToRole="UserTrophy" />
+        </EntityType>
+        <EntityType Name="UserEvent">
+          <Key>
+            <PropertyRef Name="userEventId" />
+          </Key>
+          <Property Name="userEventId" Type="Int32" Nullable="false" />
+          <Property Name="eventId" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="checkInDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_UserEvent_Event" FromRole="UserEvent" ToRole="Event" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserEvent_User" FromRole="UserEvent" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserExam">
+          <Key>
+            <PropertyRef Name="userExamId" />
+          </Key>
+          <Property Name="userExamId" Type="Int32" Nullable="false" />
+          <Property Name="complete" Type="Boolean" />
+          <Property Name="examId" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="dateCompleted" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_UserExam_Exam" FromRole="UserExam" ToRole="Exam" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserExam_User" FromRole="UserExam" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserQuiz">
+          <Key>
+            <PropertyRef Name="userQuizId" />
+          </Key>
+          <Property Name="userQuizId" Type="Int32" Nullable="false" />
+          <Property Name="complete" Type="Boolean" />
+          <Property Name="quizId" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="dateCompleted" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Quiz" Relationship="Self.FK_UserQuiz_Quiz" FromRole="UserQuiz" ToRole="Quiz" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserQuiz_User" FromRole="UserQuiz" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserSurvey">
+          <Key>
+            <PropertyRef Name="userSurveyId" />
+          </Key>
+          <Property Name="userSurveyId" Type="Int32" Nullable="false" />
+          <Property Name="complete" Type="Boolean" />
+          <Property Name="surveyId" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="dateCompleted" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Survey" Relationship="Self.FK_UserSurvey_Survey" FromRole="UserSurvey" ToRole="Survey" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserSurvey_User" FromRole="UserSurvey" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserTrophy">
+          <Key>
+            <PropertyRef Name="userTrophyId" />
+          </Key>
+          <Property Name="userTrophyId" Type="Int32" Nullable="false" />
+          <Property Name="trophyId" Type="Int32" />
+          <Property Name="userId" Type="Int32" />
+          <NavigationProperty Name="Trophy" Relationship="Self.FK_UserTrophy_Trophy" FromRole="UserTrophy" ToRole="Trophy" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserTrophy_User" FromRole="UserTrophy" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Event_Sponsor">
+          <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="0..1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sponsor">
+              <PropertyRef Name="sponsorId" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="sponsorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEvent_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
+          <End Role="UserEvent" Type="Self.UserEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="eventId" />
+            </Principal>
+            <Dependent Role="UserEvent">
+              <PropertyRef Name="eventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="subjectId" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="subjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserExam_Exam">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="0..1" />
+          <End Role="UserExam" Type="Self.UserExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exam">
+              <PropertyRef Name="examId" />
+            </Principal>
+            <Dependent Role="UserExam">
+              <PropertyRef Name="examId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Goodie_Sponsor">
+          <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="0..1" />
+          <End Role="Goodie" Type="Self.Goodie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sponsor">
+              <PropertyRef Name="sponsorId" />
+            </Principal>
+            <Dependent Role="Goodie">
+              <PropertyRef Name="sponsorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Goodie">
+          <End Role="Goodie" Type="Self.Goodie" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goodie">
+              <PropertyRef Name="goodieId" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="goodieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quiz_Sponsor">
+          <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="0..1" />
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sponsor">
+              <PropertyRef Name="sponsorId" />
+            </Principal>
+            <Dependent Role="Quiz">
+              <PropertyRef Name="sponsorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserQuiz_Quiz">
+          <End Role="Quiz" Type="Self.Quiz" Multiplicity="0..1" />
+          <End Role="UserQuiz" Type="Self.UserQuiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quiz">
+              <PropertyRef Name="quizId" />
+            </Principal>
+            <Dependent Role="UserQuiz">
+              <PropertyRef Name="quizId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Survey_Sponsor">
+          <End Role="Sponsor" Type="Self.Sponsor" Multiplicity="0..1" />
+          <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sponsor">
+              <PropertyRef Name="sponsorId" />
+            </Principal>
+            <Dependent Role="Survey">
+              <PropertyRef Name="sponsorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSurvey_Survey">
+          <End Role="Survey" Type="Self.Survey" Multiplicity="0..1" />
+          <End Role="UserSurvey" Type="Self.UserSurvey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Survey">
+              <PropertyRef Name="surveyId" />
+            </Principal>
+            <Dependent Role="UserSurvey">
+              <PropertyRef Name="surveyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTrophy_Trophy">
+          <End Role="Trophy" Type="Self.Trophy" Multiplicity="0..1" />
+          <End Role="UserTrophy" Type="Self.UserTrophy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trophy">
+              <PropertyRef Name="trophyId" />
+            </Principal>
+            <Dependent Role="UserTrophy">
+              <PropertyRef Name="trophyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEvent_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserEvent" Type="Self.UserEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserEvent">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserExam_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserExam" Type="Self.UserExam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserExam">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserQuiz_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserQuiz" Type="Self.UserQuiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserQuiz">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserSurvey_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserSurvey" Type="Self.UserSurvey" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserSurvey">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTrophy_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserTrophy" Type="Self.UserTrophy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserTrophy">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="fitMindDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="Exams" EntityType="Self.Exam" />
+          <EntitySet Name="Goodies" EntityType="Self.Goodie" />
+          <EntitySet Name="Quizs" EntityType="Self.Quiz" />
+          <EntitySet Name="Sponsors" EntityType="Self.Sponsor" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="Surveys" EntityType="Self.Survey" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="Trophies" EntityType="Self.Trophy" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserEvents" EntityType="Self.UserEvent" />
+          <EntitySet Name="UserExams" EntityType="Self.UserExam" />
+          <EntitySet Name="UserQuizs" EntityType="Self.UserQuiz" />
+          <EntitySet Name="UserSurveys" EntityType="Self.UserSurvey" />
+          <EntitySet Name="UserTrophies" EntityType="Self.UserTrophy" />
+          <AssociationSet Name="FK_Event_Sponsor" Association="Self.FK_Event_Sponsor">
+            <End Role="Sponsor" EntitySet="Sponsors" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEvent_Event" Association="Self.FK_UserEvent_Event">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="UserEvent" EntitySet="UserEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Subject" Association="Self.FK_Exam_Subject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="Exam" EntitySet="Exams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserExam_Exam" Association="Self.FK_UserExam_Exam">
+            <End Role="Exam" EntitySet="Exams" />
+            <End Role="UserExam" EntitySet="UserExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Goodie_Sponsor" Association="Self.FK_Goodie_Sponsor">
+            <End Role="Sponsor" EntitySet="Sponsors" />
+            <End Role="Goodie" EntitySet="Goodies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Goodie" Association="Self.FK_Transaction_Goodie">
+            <End Role="Goodie" EntitySet="Goodies" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quiz_Sponsor" Association="Self.FK_Quiz_Sponsor">
+            <End Role="Sponsor" EntitySet="Sponsors" />
+            <End Role="Quiz" EntitySet="Quizs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserQuiz_Quiz" Association="Self.FK_UserQuiz_Quiz">
+            <End Role="Quiz" EntitySet="Quizs" />
+            <End Role="UserQuiz" EntitySet="UserQuizs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Survey_Sponsor" Association="Self.FK_Survey_Sponsor">
+            <End Role="Sponsor" EntitySet="Sponsors" />
+            <End Role="Survey" EntitySet="Surveys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSurvey_Survey" Association="Self.FK_UserSurvey_Survey">
+            <End Role="Survey" EntitySet="Surveys" />
+            <End Role="UserSurvey" EntitySet="UserSurveys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_User" Association="Self.FK_Transaction_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTrophy_Trophy" Association="Self.FK_UserTrophy_Trophy">
+            <End Role="Trophy" EntitySet="Trophies" />
+            <End Role="UserTrophy" EntitySet="UserTrophies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEvent_User" Association="Self.FK_UserEvent_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserEvent" EntitySet="UserEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserExam_User" Association="Self.FK_UserExam_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserExam" EntitySet="UserExams" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserQuiz_User" Association="Self.FK_UserQuiz_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserQuiz" EntitySet="UserQuizs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserSurvey_User" Association="Self.FK_UserSurvey_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserSurvey" EntitySet="UserSurveys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTrophy_User" Association="Self.FK_UserTrophy_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserTrophy" EntitySet="UserTrophies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fitMindDbModelStoreContainer" CdmEntityContainer="fitMindDbEntities">
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="fitMindDbModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="eventId" ColumnName="eventId" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="sponsorId" ColumnName="sponsorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exams">
+            <EntityTypeMapping TypeName="fitMindDbModel.Exam">
+              <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="examId" ColumnName="examId" />
+                <ScalarProperty Name="points" ColumnName="points" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="q1" ColumnName="q1" />
+                <ScalarProperty Name="q2" ColumnName="q2" />
+                <ScalarProperty Name="q3" ColumnName="q3" />
+                <ScalarProperty Name="q4" ColumnName="q4" />
+                <ScalarProperty Name="a1" ColumnName="a1" />
+                <ScalarProperty Name="a2" ColumnName="a2" />
+                <ScalarProperty Name="a3" ColumnName="a3" />
+                <ScalarProperty Name="a4" ColumnName="a4" />
+                <ScalarProperty Name="subjectId" ColumnName="subjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goodies">
+            <EntityTypeMapping TypeName="fitMindDbModel.Goodie">
+              <MappingFragment StoreEntitySet="Goodie">
+                <ScalarProperty Name="goodieId" ColumnName="goodieId" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="pointsNeeded" ColumnName="pointsNeeded" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="sponsorId" ColumnName="sponsorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quizs">
+            <EntityTypeMapping TypeName="fitMindDbModel.Quiz">
+              <MappingFragment StoreEntitySet="Quiz">
+                <ScalarProperty Name="quizId" ColumnName="quizId" />
+                <ScalarProperty Name="points" ColumnName="points" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="q1" ColumnName="q1" />
+                <ScalarProperty Name="q2" ColumnName="q2" />
+                <ScalarProperty Name="q3" ColumnName="q3" />
+                <ScalarProperty Name="q4" ColumnName="q4" />
+                <ScalarProperty Name="a1" ColumnName="a1" />
+                <ScalarProperty Name="a2" ColumnName="a2" />
+                <ScalarProperty Name="a3" ColumnName="a3" />
+                <ScalarProperty Name="a4" ColumnName="a4" />
+                <ScalarProperty Name="sponsorId" ColumnName="sponsorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sponsors">
+            <EntityTypeMapping TypeName="fitMindDbModel.Sponsor">
+              <MappingFragment StoreEntitySet="Sponsor">
+                <ScalarProperty Name="sponsorId" ColumnName="sponsorId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="fitMindDbModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="subjectId" ColumnName="subjectId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Surveys">
+            <EntityTypeMapping TypeName="fitMindDbModel.Survey">
+              <MappingFragment StoreEntitySet="Survey">
+                <ScalarProperty Name="surveyId" ColumnName="surveyId" />
+                <ScalarProperty Name="points" ColumnName="points" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="q1" ColumnName="q1" />
+                <ScalarProperty Name="q2" ColumnName="q2" />
+                <ScalarProperty Name="q3" ColumnName="q3" />
+                <ScalarProperty Name="q4" ColumnName="q4" />
+                <ScalarProperty Name="q5" ColumnName="q5" />
+                <ScalarProperty Name="sponsorId" ColumnName="sponsorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="fitMindDbModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="transactionId" ColumnName="transactionId" />
+                <ScalarProperty Name="claimDate" ColumnName="claimDate" />
+                <ScalarProperty Name="redeemDate" ColumnName="redeemDate" />
+                <ScalarProperty Name="redeemed" ColumnName="redeemed" />
+                <ScalarProperty Name="goodieId" ColumnName="goodieId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trophies">
+            <EntityTypeMapping TypeName="fitMindDbModel.Trophy">
+              <MappingFragment StoreEntitySet="Trophy">
+                <ScalarProperty Name="trophyId" ColumnName="trophyId" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="pointsAwarded" ColumnName="pointsAwarded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="fitMindDbModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="TotalPoints" ColumnName="TotalPoints" />
+                <ScalarProperty Name="PointstoDate" ColumnName="PointstoDate" />
+                <ScalarProperty Name="PointsSpent" ColumnName="PointsSpent" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserEvents">
+            <EntityTypeMapping TypeName="fitMindDbModel.UserEvent">
+              <MappingFragment StoreEntitySet="UserEvent">
+                <ScalarProperty Name="userEventId" ColumnName="userEventId" />
+                <ScalarProperty Name="eventId" ColumnName="eventId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="checkInDate" ColumnName="checkInDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserExams">
+            <EntityTypeMapping TypeName="fitMindDbModel.UserExam">
+              <MappingFragment StoreEntitySet="UserExam">
+                <ScalarProperty Name="userExamId" ColumnName="userExamId" />
+                <ScalarProperty Name="complete" ColumnName="complete" />
+                <ScalarProperty Name="examId" ColumnName="examId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="dateCompleted" ColumnName="dateCompleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserQuizs">
+            <EntityTypeMapping TypeName="fitMindDbModel.UserQuiz">
+              <MappingFragment StoreEntitySet="UserQuiz">
+                <ScalarProperty Name="userQuizId" ColumnName="userQuizId" />
+                <ScalarProperty Name="complete" ColumnName="complete" />
+                <ScalarProperty Name="quizId" ColumnName="quizId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="dateCompleted" ColumnName="dateCompleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSurveys">
+            <EntityTypeMapping TypeName="fitMindDbModel.UserSurvey">
+              <MappingFragment StoreEntitySet="UserSurvey">
+                <ScalarProperty Name="userSurveyId" ColumnName="userSurveyId" />
+                <ScalarProperty Name="complete" ColumnName="complete" />
+                <ScalarProperty Name="surveyId" ColumnName="surveyId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="dateCompleted" ColumnName="dateCompleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTrophies">
+            <EntityTypeMapping TypeName="fitMindDbModel.UserTrophy">
+              <MappingFragment StoreEntitySet="UserTrophy">
+                <ScalarProperty Name="userTrophyId" ColumnName="userTrophyId" />
+                <ScalarProperty Name="trophyId" ColumnName="trophyId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
