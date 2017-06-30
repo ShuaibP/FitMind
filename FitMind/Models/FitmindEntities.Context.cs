@@ -13,10 +13,10 @@ namespace FitMind.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class fitMindDbEntities : DbContext
+    public partial class fitMindDbEntities1 : DbContext
     {
-        public fitMindDbEntities()
-            : base("name=fitMindDbEntities")
+        public fitMindDbEntities1()
+            : base("name=fitMindDbEntities1")
         {
         }
     
