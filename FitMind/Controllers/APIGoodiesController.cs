@@ -15,7 +15,7 @@ namespace FitMind.Controllers
 {
     public class APIGoodiesController : ApiController
     {
-        private fitMindDbEntities db = new fitMindDbEntities();
+        private fitMindDbEntities1 db = new fitMindDbEntities1();
 
         // GET: api/APIGoodies
         public IQueryable<Goodie> GetGoodies()

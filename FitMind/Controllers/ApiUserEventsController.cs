@@ -15,7 +15,7 @@ namespace FitMind.Controllers
 {
     public class ApiUserEventsController : ApiController
     {
-        private fitMindDbEntities db = new fitMindDbEntities();
+        private fitMindDbEntities1 db = new fitMindDbEntities1();
 
         // GET: api/ApiUserEvents
         public IQueryable<UserEvent> GetUserEvents()

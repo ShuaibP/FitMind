@@ -15,7 +15,7 @@ namespace FitMind.Controllers
 {
     public class APIUserQuizsController : ApiController
     {
-        private fitMindDbEntities db = new fitMindDbEntities();
+        private fitMindDbEntities1 db = new fitMindDbEntities1();
 
         // GET: api/APIUserQuizs
         public IQueryable<UserQuiz> GetUserQuizs()

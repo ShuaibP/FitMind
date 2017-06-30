@@ -15,7 +15,7 @@ namespace FitMind.Controllers
 {
     public class APITransactionsController : ApiController
     {
-        private fitMindDbEntities db = new fitMindDbEntities();
+        private fitMindDbEntities1 db = new fitMindDbEntities1();
 
         // GET: api/APITransactions
         public IQueryable<Transaction> GetTransactions()
