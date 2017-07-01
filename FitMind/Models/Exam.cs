@@ -11,7 +11,8 @@ namespace FitMind.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Exam
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,22 +22,38 @@ namespace FitMind.Models
         }
     
         public int examId { get; set; }
+        [Display(Name = "Number of Points")]
         public Nullable<int> points { get; set; }
+        [Display(Name = "Exam Question Category")]
         public string name { get; set; }
+        [Display(Name = "Question 1")]
         public string q1 { get; set; }
+        [Display(Name = "Question 2")]
         public string q2 { get; set; }
+        [Display(Name = "Question 3")]
+
         public string q3 { get; set; }
+        [Display(Name = "Question 4")]
         public string q4 { get; set; }
+        [Display(Name = "Answer 1")]
         public string a1 { get; set; }
+        [Display(Name = "Answer 2")]
         public string a2 { get; set; }
+        [Display(Name = "Answer 3")]
         public string a3 { get; set; }
+        [Display(Name = "Answer 4")]
         public string a4 { get; set; }
+        [Display(Name = "Hint: Question 1")]
         public string d1 { get; set; }
+        [Display(Name = "Hint: Question 2")]
         public string d2 { get; set; }
+        [Display(Name = "Hint: Question 3")]
         public string d3 { get; set; }
+        [Display(Name = "Hint: Question 4")]
         public string d4 { get; set; }
+       
         public Nullable<int> subjectId { get; set; }
-    
+        [Display(Name = "Subject")]
         public virtual Subject Subject { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserExam> UserExams { get; set; }

@@ -241,6 +241,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bBBootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -306,16 +307,16 @@
     <Content Include="Views\MVCQuizs\Details.cshtml" />
     <Content Include="Views\MVCQuizs\Edit.cshtml" />
     <Content Include="Views\MVCQuizs\Index.cshtml" />
-    <Content Include="Views\MVCExams\Create.cshtml" />
-    <Content Include="Views\MVCExams\Delete.cshtml" />
-    <Content Include="Views\MVCExams\Details.cshtml" />
-    <Content Include="Views\MVCExams\Edit.cshtml" />
-    <Content Include="Views\MVCExams\Index.cshtml" />
     <Content Include="Views\MVCGoodies\Create.cshtml" />
     <Content Include="Views\MVCGoodies\Delete.cshtml" />
     <Content Include="Views\MVCGoodies\Details.cshtml" />
     <Content Include="Views\MVCGoodies\Edit.cshtml" />
     <Content Include="Views\MVCGoodies\Index.cshtml" />
+    <Content Include="Views\MVCExams\Create.cshtml" />
+    <Content Include="Views\MVCExams\Delete.cshtml" />
+    <Content Include="Views\MVCExams\Details.cshtml" />
+    <Content Include="Views\MVCExams\Edit.cshtml" />
+    <Content Include="Views\MVCExams\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="fitMindDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="fitMindDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="eventId" />
@@ -23,18 +23,18 @@
           <Property Name="examId" Type="int" Nullable="false" />
           <Property Name="points" Type="int" />
           <Property Name="name" Type="varchar" MaxLength="50" />
-          <Property Name="q1" Type="varchar" MaxLength="50" />
-          <Property Name="q2" Type="varchar" MaxLength="50" />
-          <Property Name="q3" Type="varchar" MaxLength="50" />
-          <Property Name="q4" Type="varchar" MaxLength="50" />
-          <Property Name="a1" Type="varchar" MaxLength="50" />
-          <Property Name="a2" Type="varchar" MaxLength="50" />
-          <Property Name="a3" Type="varchar" MaxLength="50" />
-          <Property Name="a4" Type="varchar" MaxLength="50" />
-          <Property Name="d1" Type="varchar" MaxLength="50" />
-          <Property Name="d2" Type="varchar" MaxLength="50" />
-          <Property Name="d3" Type="varchar" MaxLength="50" />
-          <Property Name="d4" Type="varchar" MaxLength="50" />
+          <Property Name="q1" Type="varchar(max)" />
+          <Property Name="q2" Type="varchar(max)" />
+          <Property Name="q3" Type="varchar(max)" />
+          <Property Name="q4" Type="varchar(max)" />
+          <Property Name="a1" Type="varchar(max)" />
+          <Property Name="a2" Type="varchar(max)" />
+          <Property Name="a3" Type="varchar(max)" />
+          <Property Name="a4" Type="varchar(max)" />
+          <Property Name="d1" Type="varchar(max)" />
+          <Property Name="d2" Type="varchar(max)" />
+          <Property Name="d3" Type="varchar(max)" />
+          <Property Name="d4" Type="varchar(max)" />
           <Property Name="subjectId" Type="int" />
         </EntityType>
         <EntityType Name="Goodie">
@@ -470,8 +470,7 @@
             <End Role="UserTrophy" EntitySet="UserTrophy" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="fitMindDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -495,18 +494,18 @@
           <Property Name="examId" Type="Int32" Nullable="false" />
           <Property Name="points" Type="Int32" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="q1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="q2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="q3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="q4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="a1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="a2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="a3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="a4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="d1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="d2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="d3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="d4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="q1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="q2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="q3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="q4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="a1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="a2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="a3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="a4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="d1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="d2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="d3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="d4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="subjectId" Type="Int32" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Exam_Subject" FromRole="Exam" ToRole="Subject" />
           <NavigationProperty Name="UserExams" Relationship="Self.FK_UserExam_Exam" FromRole="Exam" ToRole="UserExam" />

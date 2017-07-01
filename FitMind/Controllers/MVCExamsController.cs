@@ -48,7 +48,7 @@ namespace FitMind.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "examId,points,name,q1,q2,q3,q4,a1,a2,a3,a4,subjectId")] Exam exam)
+        public ActionResult Create([Bind(Include = "examId,points,name,q1,q2,q3,q4,a1,a2,a3,a4,d1,d2,d3,d4,subjectId")] Exam exam)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace FitMind.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "examId,points,name,q1,q2,q3,q4,a1,a2,a3,a4,subjectId")] Exam exam)
+        public ActionResult Edit([Bind(Include = "examId,points,name,q1,q2,q3,q4,a1,a2,a3,a4,d1,d2,d3,d4,subjectId")] Exam exam)
         {
             if (ModelState.IsValid)
             {
