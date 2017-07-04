@@ -9,9 +9,10 @@
 
 namespace FitMind.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Event
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,7 +28,9 @@ namespace FitMind.Models
         public string description { get; set; }
         public Nullable<int> sponsorId { get; set; }
     
+        [JsonIgnore]
         public virtual Sponsor Sponsor { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserEvent> UserEvents { get; set; }
     }
