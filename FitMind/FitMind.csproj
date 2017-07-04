@@ -284,13 +284,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bBBootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrapp.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bbbootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Logo.png" />
+    <Content Include="Images\Picture1.png" />
+    <Content Include="Images\Picture2.png" />
     <Content Include="Models\FitMindEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FitMindEntities.edmx</DependentUpon>

@@ -51,7 +51,7 @@ namespace FitMind.Models
         public string d3 { get; set; }
         [Display(Name = "Hint: Question 4")]
         public string d4 { get; set; }
-       
+        [Display(Name = "Subject")]
         public Nullable<int> subjectId { get; set; }
         [Display(Name = "Subject")]
         public virtual Subject Subject { get; set; }
