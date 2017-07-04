@@ -148,13 +148,13 @@
 
 
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.examId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.examId, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.examId, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
 
 
@@ -171,7 +171,7 @@
 
 }
 
-<iframe width="800" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiZGQ1OTkxMDQtMjY0ZC00N2YxLWI5MWQtZDY0NDc3MDRkMjI5IiwidCI6IjkyNDU0MzM1LTU2NGUtNGNjZi1iMGIwLTI0NDQ1YjhjMDNmNyIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
