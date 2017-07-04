@@ -291,6 +291,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Logo.png" />
+    <Content Include="Images\Picture1.png" />
+    <Content Include="Images\Picture2.png" />
     <Content Include="Models\FitMindEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FitMindEntities.edmx</DependentUpon>
